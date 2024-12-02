@@ -1,17 +1,24 @@
-# Master SQL joins by writing complex queries using different types of joins.
+# Key Highlights
+1. Defining Relationships with ER Diagrams
+Learners start by creating an Entity-Relationship (ER) diagram, modeling relationships and dependencies between users, bookings, properties, and reviews in the Airbnb schema.
 
-## Explanation of the Queries
-1. **INNER JOIN**: Includes only the rows where there is a match in both tables.
-2. **LEFT JOIN**: Includes all rows from the left table (Property) and only matching rows from the right table (Review).
-3. **FULL OUTER JOIN**: Combines results of `LEFT JOIN` and `RIGHT JOIN` to include all rows from both tables, filling unmatched rows with `NULL`.
+2. Complex Queries with Joins
+Gain expertise in SQL joins with tasks that require combining multiple tables to extract meaningful insights. Learners explore INNER JOIN, LEFT JOIN, and FULL OUTER JOIN for various scenarios.
 
+3. Power of Subqueries
+Develop proficiency with both correlated and non-correlated subqueries. Learn how to nest queries for advanced data analysis, such as calculating average ratings or filtering users based on activity thresholds.
 
-### 1. **INNER JOIN**: Retrieve all bookings and the respective users who made those bookings.
-This query retrieves details of bookings along with user information, showing only those bookings where a user exists.
+4. Aggregations and Window Functions
+Unlock analytical capabilities using SQL aggregation functions like COUNT and SUM. Dive into advanced window functions like ROW_NUMBER and RANK to rank and analyze data sets.
 
-### 2. **LEFT JOIN**: Retrieve all properties and their reviews, including properties that have no reviews.
-This query retrieves all properties and their corresponding reviews. If a property has no reviews, it still appears in the result with `NULL` values for review-related columns.
+5. Indexing for Optimization
+Learners identify performance bottlenecks and write SQL commands to create indexes for frequently queried columns. They analyze the impact of these changes on query execution times.
 
+6. Query Optimization Techniques
+Write and analyze complex queries for retrieving detailed information about bookings, properties, users, and payments. Refactor queries to improve execution times by reducing redundancies and leveraging indexing.
 
-### 3. **FULL OUTER JOIN**: Retrieve all users and all bookings, even if the user or booking is not linked.
-MySQL does not support `FULL OUTER JOIN` directly. Instead, you can use a combination of `LEFT JOIN` and `RIGHT JOIN` with `UNION` to achieve this.
+7. Partitioning Large Tables
+Address performance challenges with large datasets by implementing table partitioning. Focus on partitioning the Booking table to improve queries on date ranges and compare performance before and after partitioning.
+
+8. Performance Monitoring and Schema Refinement
+Learners monitor query performance using SHOW PROFILE and EXPLAIN ANALYZE, identify bottlenecks, and propose schema changes. Practical tasks include implementing these adjustments and documenting results.
