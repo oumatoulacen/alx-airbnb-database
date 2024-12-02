@@ -12,5 +12,5 @@ CREATE INDEX idx_property_id ON Property(property_id);      -- Optimizes queries
 CREATE INDEX idx_property_location ON Property(location);   -- Optimizes searches by location
 
 
-EXPLAIN SELECT * FROM Booking WHERE user_id = 'some-user-id';
+EXPLAIN ANALYZE SELECT * FROM Booking WHERE user_id = 'some-user-id';
 EXPLAIN SELECT * FROM Property WHERE location = 'New York';
