@@ -14,7 +14,9 @@ FROM
 INNER JOIN 
     User 
 ON 
-    Booking.user_id = User.user_id;
+    Booking.user_id = User.user_id
+ORDER BY 
+    Booking.start_date ASC;
 
 -- Retrieve all properties and their reviews, including properties that have no reviews
 SELECT 
@@ -29,9 +31,41 @@ FROM
 LEFT JOIN 
     Review 
 ON 
-    Property.property_id = Review.property_id;
+    Property.property_id = Review.property_id
+ORDER BY 
+    Property.name ASC;
 
 -- Retrieve all users and all bookings, even if the user or booking is not linked
+-- SELECT 
+--     User.user_id,
+--     User.first_name,
+--     User.last_name,
+--     Booking.booking_id,
+--     Booking.start_date,
+--     Booking.end_date
+-- FROM 
+--     User
+-- LEFT JOIN 
+--     Booking 
+-- ON 
+--     User.user_id = Booking.user_id
+
+-- UNION
+
+-- SELECT 
+--     User.user_id,
+--     User.first_name,
+--     User.last_name,
+--     Booking.booking_id,
+--     Booking.start_date,
+--     Booking.end_date
+-- FROM 
+--     User
+-- RIGHT JOIN 
+--     Booking 
+-- ON 
+--     User.user_id = Booking.user_id;
+
 SELECT 
     User.user_id,
     User.first_name,
@@ -41,23 +75,9 @@ SELECT
     Booking.end_date
 FROM 
     User
-LEFT JOIN 
+FULL OUTER JOIN 
     Booking 
 ON 
     User.user_id = Booking.user_id
-
-UNION
-
-SELECT 
-    User.user_id,
-    User.first_name,
-    User.last_name,
-    Booking.booking_id,
-    Booking.start_date,
-    Booking.end_date
-FROM 
-    User
-RIGHT JOIN 
-    Booking 
-ON 
-    User.user_id = Booking.user_id;
+ORDER BY 
+    User.last_name ASC, Booking.start_date ASC;
