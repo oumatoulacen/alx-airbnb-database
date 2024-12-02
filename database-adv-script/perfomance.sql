@@ -1,4 +1,5 @@
 -- Initial query to retrieve bookings with user, property, and payment details
+-- Initial query to retrieve all bookings with user, property, and payment details
 SELECT 
     b.booking_id,
     b.start_date,
@@ -23,7 +24,10 @@ JOIN
 JOIN 
     Property p ON b.property_id = p.property_id
 JOIN 
-    Payment pay ON pay.booking_id = b.booking_id;
+    Payment pay ON pay.booking_id = b.booking_id
+WHERE
+    b.status = 'confirmed'  -- Filtering to show only confirmed bookings
+    AND p.location = 'Paris';  -- Filtering to show properties in Paris
 
 -- Index creation (if not already done)
 CREATE INDEX idx_booking_user_id ON Booking(user_id);
